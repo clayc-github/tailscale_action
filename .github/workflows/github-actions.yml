@@ -1,0 +1,14 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      # - name: test secrets
+      #   env:
+      #     CONFIG: ${{ secrets.CONFIG }}
+      #   shell: bash
+      #   run: echo "$CONFIG" | base64 -d >> /tmp/wg0.conf
+      - run: sudo apt update -y && sudo apt upgrade -y
+      - run: sudo curl -fsSL https://tailscale.com/install.sh | sh
