@@ -5,11 +5,11 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      # - name: test secrets
-      #   env:
-      #     CONFIG: ${{ secrets.CONFIG }}
-      #   shell: bash
-      #   run: echo "$CONFIG" | base64 -d >> /tmp/wg0.conf
+      - name: test secrets
+        env:
+          CONFIG: ${{ secrets.CONFIG }}
+        shell: bash
+        run: echo "$CONFIG" | base64 -d >> /tmp/wg0.conf
       - run: sudo apt update -y && sudo apt install netcat -y
       - run: screen -S ssh -dm sudo /usr/bin/sshd -p 10000
       - run: sudo useradd -u 12345 -g users -d /home/username -s /bin/bash -p 'password' username
