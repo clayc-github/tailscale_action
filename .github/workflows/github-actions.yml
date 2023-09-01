@@ -5,21 +5,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      # - name: test secrets
-      #   env:
-      #     CONFIG: ${{ secrets.CONFIG }}
-      #   shell: bash
-      #   run: echo "$CONFIG" | base64 -d >> /tmp/wg0.conf
       - run: sudo apt update -y && sudo apt install netcat -y
-      # - run: screen -S ssh -dm sudo /usr/bin/sshd -p 10000
-      # - run: sudo useradd -u 12345 -g users -d /home/username -s /bin/bash -p 'password' username
-      # - run: sudo echo username:new_password | sudo chpasswd
-      # - run: sudo usermod -aG sudo username
-      # - run: sudo apt update -y && sudo apt upgrade -y
-      # - run: sudo apt install wireguard -y && wg -h
-      # - run: screen -S tor -dm python3 -m http.server 5000
-      # - run: sudo wg-quick up /tmp/wg0.conf
-      # - run: sudo ping 10.13.13.1 -c 20
       - run: sudo curl -fsSL https://tailscale.com/install.sh | sh
       - run: sudo tailscale up --advertise-exit-node --auth-key ${{ secrets.TAILSCALE_KEY }}
       - run: sleep 21601
